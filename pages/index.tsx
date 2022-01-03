@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-md p-2 mx-auto">
+      <main className="max-w-md p-8 mx-auto h-screen flex flex-col">
         <h1>
           Théo's{" "}
           <a
@@ -43,7 +43,7 @@ export default function Home() {
           ))}
         </ul>
 
-        <p className="text-sm mt-16">
+        <p className="text-sm mt-auto">
           [*] I'm keeping a twitter list{" "}
           <a
             className="text-blue-500 hover:text-blue-300 underline"
@@ -54,7 +54,7 @@ export default function Home() {
           .
         </p>
 
-        <p className="text-xs mt-8 underline">
+        <p className="text-xs mt-4 underline">
           <a href="https://github.com/theo-m/genuary">source</a>
         </p>
       </main>
