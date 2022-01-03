@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+</head>
+<body>
+<main></main>
+</body>
+<script>
+    let t = 0;
+
+    function setup() {
+        createCanvas(400, 400);
+    }
+
+    function draw() {
+        background(0, 20, 20);
+        circle(t % 400, 200, 50);
+        fill(200, 250, 0);
+
+        circle(400-(t%400), 250, 50);
+        fill(255);
+
+        circle(200, (300+t) % 400, 50);
+        fill(150);
+
+        circle(200, 350+50*sin(.2*t), 50);
+        fill(255);
+
+        t = t + 1;
+    }
+</script>
+</html>
