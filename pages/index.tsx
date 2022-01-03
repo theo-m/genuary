@@ -19,13 +19,13 @@ export default function Home() {
             className="font-mono text-blue-500 hover:text-blue-300 underline"
             href="https://genuary.art"
           >
-            genuary 2022
+            2022 genuary
           </a>
         </h1>
 
         <p>
-          big fan of generative art for a while*, first hands on experience.
-          learning p5js in the process.
+          I like generative art*, this is my first experience doing genuary. The
+          sources are avalaible, I've cobbled together p5js and nextjs.
         </p>
 
         <ul className="flex flex-col mt-8">
@@ -51,7 +51,7 @@ export default function Home() {
           >
             here
           </a>
-          , otherwise my feed is full of NFT talk.
+          .
         </p>
 
         <p className="text-xs mt-8 underline">
