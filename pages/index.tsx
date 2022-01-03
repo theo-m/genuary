@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="max-w-md p-2 mx-auto">
         <h1>
           Théo's{" "}
           <a

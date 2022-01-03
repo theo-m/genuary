@@ -1,4 +1,5 @@
 import type Ip5 from "p5";
+import { frame } from "./rnd";
 const serverSideProps = {
   name: "10k",
   path: "d1-10k",
@@ -7,12 +8,11 @@ const serverSideProps = {
 };
 
 const make = () => {
-  const [w, h] = [400, 600];
-
   return {
     ...serverSideProps,
 
     sketch: (ref: HTMLDivElement) => {
+      const [w, h] = frame(ref);
       const p5 = require("p5");
       const m = (s: Ip5) => {
         s.setup = () => {

@@ -1,4 +1,5 @@
 import type Ip5 from "p5";
+import { frame } from "./rnd";
 
 const serverSideProps = {
   name: "dithering",
@@ -9,7 +10,6 @@ const serverSideProps = {
 };
 
 const make = () => {
-  const [w, h] = [400, 600];
   const gamma = 4;
   const r = 50 ** 2;
 
@@ -18,6 +18,7 @@ const make = () => {
 
     sketch: (ref: HTMLDivElement) => {
       const p5 = require("p5");
+      const [w, h] = frame(ref);
       const m = (s: Ip5) => {
         s.setup = () => {
           s.createCanvas(w, h);

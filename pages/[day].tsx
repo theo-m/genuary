@@ -16,13 +16,15 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
   }, []);
 
   return (
-    <div>
-      <Link href="/">
-        <a className="text-blue-500 hover:text-blue-300 underline">back</a>
-      </Link>
-      <h1>{day.name}</h1>
-      <p>{day.comment}</p>
-      <div className="mt-4" ref={ref}></div>
+    <div className="h-screen w-screen flex flex-col">
+      <div className="mx-auto p-2">
+        <Link href="/">
+          <a className="text-blue-500 hover:text-blue-300 underline">back</a>
+        </Link>
+        <h1>{day.name}</h1>
+        <p>{day.comment}</p>
+      </div>
+      <div className="" ref={ref}></div>
     </div>
   );
 };

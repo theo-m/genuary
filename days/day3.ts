@@ -1,15 +1,14 @@
 import type Ip5 from "p5";
-import { unif, unifctr } from "./rnd";
+import { frame, unif, unifctr } from "./rnd";
 
 const serverSideProps = {
   name: "space",
   path: "d3-space",
-  comment: "👩🏻‍🚀 eh fun to do, not the best thing... probly won't run on mobile?",
+  comment: "👩🏻‍🚀 fun to do, not the best thing... probly won't run on mobile?",
   sketch: null,
 };
 
 const d2o = () => {
-  const [w, h] = [400, 600];
   const n = 5_000;
   const tau = 0.02;
 
@@ -18,6 +17,7 @@ const d2o = () => {
 
     sketch: (ref: HTMLDivElement) => {
       const p5 = require("p5");
+      const [w, h] = frame(ref);
       const m = (s: Ip5) => {
         let t = 0;
         const star = 160;
