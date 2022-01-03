@@ -32,7 +32,7 @@ const make = () => {
           }
           s.updatePixels();
           // s.frameRate(60);
-          // s.noLoop();
+          s.noLoop();
         };
       };
 
