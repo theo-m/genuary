@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 import days from "../days";
@@ -17,6 +18,9 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <div className="h-screen w-screen flex flex-col">
+      <Head>
+        <title>{day.name}</title>
+      </Head>
       <div className="mx-auto p-2">
         <Link href="/">
           <a className="text-blue-500 hover:text-blue-300 underline">back</a>
