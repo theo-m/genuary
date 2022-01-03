@@ -2,7 +2,8 @@ import type Ip5 from "p5";
 const serverSideProps = {
   name: "dithering",
   path: "d2-dithering",
-  comment: "",
+  comment:
+    "reimpl of something i saw on twitter, couldn't find the original work though",
   sketch: null,
 };
 

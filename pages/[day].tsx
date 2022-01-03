@@ -20,10 +20,11 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <Link href="/">
-        <a>back</a>
+        <a className="text-blue-500 hover:text-blue-300 underline">back</a>
       </Link>
       <h1>{day.name}</h1>
-      <div ref={ref}></div>
+      <p>{day.comment}</p>
+      <div className="mt-4" ref={ref}></div>
     </div>
   );
 };

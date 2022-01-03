@@ -1,7 +1,7 @@
 const serverSideProps = {
   name: "space",
   path: "d3-space",
-  comment: "",
+  comment: "wip...",
   sketch: null,
 };
 

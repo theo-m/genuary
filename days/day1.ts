@@ -2,13 +2,12 @@ import type Ip5 from "p5";
 const serverSideProps = {
   name: "10k",
   path: "d1-10k",
-  comment: "",
+  comment: "dumb noise, just drew 10k circles 🤷",
   sketch: null,
 };
 
 const make = () => {
   const [w, h] = [400, 600];
-  let t = 0;
 
   return {
     ...serverSideProps,

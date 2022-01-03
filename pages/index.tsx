@@ -15,13 +15,29 @@ export default function Home() {
       <main>
         <h1>Théo's Genuary 2022</h1>
 
-        <div className="flex flex-col">
-          {days.map(({ path, name }) => (
+        <p>
+          big fan of generative art for a while, first hands on experience.
+          learning p5js.
+        </p>
+
+        <ul className="flex flex-col mt-8">
+          {days.map(({ path, name, comment }) => (
             <Link href={"/[day]"} as={`/${path}`} key={path}>
-              <a>{name}</a>
+              <a className="flex space-x-2">
+                <span className="text-blue-500 hover:text-blue-300 underline">
+                  {name}
+                </span>
+                <span className="truncate text-gray-400 -underline">
+                  {comment}
+                </span>
+              </a>
             </Link>
           ))}
-        </div>
+        </ul>
+
+        <p className="text-xs mt-16">
+          <a href="https://github.com/theo-m/genuary">source</a>
+        </p>
       </main>
     </div>
   );
