@@ -8,25 +8,26 @@ import days from "../days";
 const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const ref = useRef<HTMLDivElement>(null);
 
+  const d = days.filter((d) => d.path === day)[0];
   useEffect(() => {
     if (ref.current === null || typeof window === "undefined") {
       return;
     }
 
-    days.filter((d) => d.path === day.path)[0]?.sketch?.(ref.current);
+    d?.sketch?.(ref.current);
   }, []);
 
   return (
     <div className="h-screen w-screen flex flex-col">
       <Head>
-        <title>{day.name}</title>
+        <title>{d?.name}</title>
       </Head>
       <div className="mx-auto p-2">
         <Link href="/">
           <a className="text-blue-500 hover:text-blue-300 underline">back</a>
         </Link>
-        <h1>{day.name}</h1>
-        <p>{day.comment}</p>
+        <h1>{d?.name}</h1>
+        <p>{d?.comment}</p>
       </div>
       <div className="" ref={ref}></div>
     </div>
@@ -35,7 +36,7 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
-    props: { day: days.filter((d) => d.path === context.params?.day)[0] }, // will be passed to the page component as props
+    props: { day: context.params?.day }, // will be passed to the page component as props
   };
 };
 

@@ -9,7 +9,7 @@ const serverSideProps = {
 };
 
 const d2o = () => {
-  const n = 5_000;
+  const n = 1_000;
   const tau = 0.02;
 
   return {
@@ -32,8 +32,8 @@ const d2o = () => {
           speed: unif(0.7, 1.3),
           phase: unif(0, 2 * Math.PI),
           radius: unif(1, 4),
-          vel: unifctr(w / 3, w / 12),
-          hel: unifctr(h / 6, h / 12),
+          vel: unifctr(w / 3, (2 * w) / 3),
+          hel: unifctr(h / 6, (5 * h) / 6),
           color: Math.floor(unif(100, 230)),
         }));
 
