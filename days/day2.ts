@@ -26,9 +26,9 @@ const make = () => {
           for (let x = 0; x < w; x++) {
             for (let y = 0; y < h; y++) {
               if (x < w / 2) {
-                s.set(x, y, Math.random() > (y / h) ** gamma ? 255 : 0);
+                s.set(x, y, Math.random() > (y / h) ** gamma ? 0 : 255);
               } else {
-                s.set(x, y, Math.random() > (1 - y / h) ** gamma ? 255 : 0);
+                s.set(x, y, Math.random() > (1 - y / h) ** gamma ? 0 : 255);
               }
               const dist = (x - w / 2) ** 2 + (y - h / 2) ** 2;
               if (dist < r) {
