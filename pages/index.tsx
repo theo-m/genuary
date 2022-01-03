@@ -13,11 +13,19 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Théo's Genuary 2022</h1>
+        <h1>
+          Théo's{" "}
+          <a
+            className="font-mono text-blue-500 hover:text-blue-300 underline"
+            href="https://genuary.art"
+          >
+            genuary 2022
+          </a>
+        </h1>
 
         <p>
-          big fan of generative art for a while, first hands on experience.
-          learning p5js.
+          big fan of generative art for a while*, first hands on experience.
+          learning p5js in the process.
         </p>
 
         <ul className="flex flex-col mt-8">
@@ -35,7 +43,18 @@ export default function Home() {
           ))}
         </ul>
 
-        <p className="text-xs mt-16">
+        <p className="text-sm mt-16">
+          [*] I'm keeping a twitter list{" "}
+          <a
+            className="text-blue-500 hover:text-blue-300 underline"
+            href="https://twitter.com/i/lists/1229843989060255745"
+          >
+            here
+          </a>
+          , otherwise my feed is full of NFT talk.
+        </p>
+
+        <p className="text-xs mt-8 underline">
           <a href="https://github.com/theo-m/genuary">source</a>
         </p>
       </main>

@@ -12,9 +12,7 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
       return;
     }
 
-    console.log(day);
     days.filter((d) => d.path === day.path)[0]?.sketch?.(ref.current);
-    // day.sketch?.(ref.current);
   }, []);
 
   return (

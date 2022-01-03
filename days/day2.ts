@@ -1,4 +1,5 @@
 import type Ip5 from "p5";
+
 const serverSideProps = {
   name: "dithering",
   path: "d2-dithering",
