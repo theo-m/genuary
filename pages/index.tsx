@@ -24,7 +24,7 @@ export default function Home() {
 
         <p>
           I like generative art*, this is my first experience doing genuary. The
-          sources are avalaible, I've cobbled together p5js and nextjs.
+          sources are available, I've cobbled together p5js and nextjs.
         </p>
 
         <ul className="flex flex-col mt-8">
