@@ -21,7 +21,6 @@ const d2o = () => {
       const m = (s: Ip5) => {
         let t = 0;
         const star = 160;
-        const starsq = 80 ** 2;
 
         s.setup = () => {
           const canvas = s.createCanvas(w, h);
@@ -40,22 +39,18 @@ const d2o = () => {
         s.draw = () => {
           s.background("black");
           s.push();
-          s.fill(255);
-          s.circle(w / 2, h / 2, star);
+          s.fill(240 + 10 * s.sin(3 * t));
+          s.circle(w / 2, h / 2, star * (1 + s.sin(t) / 8));
           s.pop();
 
           particles.forEach((p) => {
             const x = w / 2 + p.vel * s.cos(p.phase + p.speed * t);
             const y = h / 2 + p.hel * s.sin(p.phase + p.speed * t);
-            const r = p.radius * (1.3 + s.cos(t) / 9);
-            if (
-              (x - w / 2) ** 2 + (y - h / 2) ** 2 > starsq + r ** 2 ||
-              y > h / 2
-            ) {
-              s.noStroke();
-              s.circle(x, y, r);
-              s.fill(p.color + 20 * s.cos(t));
-            }
+            const r = p.radius * (1.3 + s.cos(p.speed * t) / 4);
+
+            s.noStroke();
+            s.circle(x, y, r);
+            s.fill(p.color + 20 * s.cos(t));
           });
 
           t += tau;
