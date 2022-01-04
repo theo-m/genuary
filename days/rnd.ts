@@ -7,3 +7,8 @@ export const frame = (ref: HTMLDivElement) => {
   const cr = ref.parentElement?.getBoundingClientRect();
   return [Math.min(cr?.width ?? 400, 1400), Math.min(cr?.height ?? 600, 1400)];
 };
+
+export const range = (n: number) =>
+  Array(n)
+    .fill(0)
+    .map((_, i) => i);
