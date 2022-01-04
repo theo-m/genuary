@@ -12,3 +12,5 @@ export const range = (n: number) =>
   Array(n)
     .fill(0)
     .map((_, i) => i);
+
+export const pcos = (n: number) => (Math.cos(n) + 1) / 2;

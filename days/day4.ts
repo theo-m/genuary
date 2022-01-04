@@ -1,5 +1,5 @@
 import type Ip5 from "p5";
-import { frame, range, unif, unifctr } from "./rnd";
+import { frame, pcos, range, unif, unifctr } from "./rnd";
 
 const meta = {
   id: "fiudenza",
@@ -13,20 +13,17 @@ const sketch = (ref: HTMLDivElement) => {
 
   const [w, h] = frame(ref);
 
-  const length = 50;
+  const length = 100;
+  const ssize = 10;
 
   //
   // --- field
   //
   const [xmin, xmax] = [Math.floor(w * -0.5), Math.floor(w * 1.5)];
   const [ymin, ymax] = [Math.floor(h * -0.5), Math.floor(h * 1.5)];
-  const resolution = Math.floor(w * 0.03);
+  const resolution = Math.floor(w * 0.08);
   const ncols = Math.ceil((xmax - xmin) / resolution);
   const nrows = Math.ceil((ymax - ymin) / resolution);
-  const field: Array<Array<number>> = range(ncols).map((x) =>
-    range(nrows).map((y) => (y / nrows) * Math.PI)
-  );
-  console.log({ ncols, nrows, field });
 
   new p5((s: Ip5) => {
     s.setup = () => {
@@ -34,29 +31,76 @@ const sketch = (ref: HTMLDivElement) => {
       s.background(0);
     };
 
-    const particles = field.flat().map((angle, i) => ({
+    let field: Array<Array<number>> = range(ncols).map((x) =>
+      range(nrows).map((y) => s.sin(x - ncols / 2) * 10 * s.sin(y - nrows / 2))
+    );
+
+    let particles = field.flat().map((angle, i) => ({
       loc: [
         (i * resolution) / ncols + resolution / 2,
         (i % ncols) * resolution + resolution / 2,
       ],
       angle,
+      color: 255 * unif(0.5, 1),
+      width: Math.floor(unif(1, 4)),
     }));
 
+    let cnt = 0;
     s.draw = () => {
+      if (cnt > length) {
+        s.background(0);
+        const phase = unif(0, Math.PI);
+        field = range(ncols).map((x) =>
+          range(nrows).map(
+            (y) =>
+              s.sin(phase + x - ncols / 2) * 10 * s.sin(phase + y - nrows / 2)
+          )
+        );
+        particles = field.flat().map((angle, i) => ({
+          loc: [
+            (i * resolution) / ncols + resolution / 2,
+            (i % ncols) * resolution + resolution / 2,
+          ],
+          angle,
+          color: 255 * unif(0.5, 1),
+          width: Math.floor(unif(1, 4)),
+        }));
+        cnt = 0;
+      }
       s.push();
-      s.fill(0, 40);
-      s.noStroke();
-      s.rect(0, 0, w, h);
+      // s.fill(0, 90);
+      // s.noStroke();
+      // s.rect(0, 0, w, h);
       s.pop();
 
-      s.push();
-      s.fill(255);
-      s.stroke(255);
-      s.strokeWeight(3);
-      particles.forEach(({ angle, loc: [x, y] }) => {
-        s.line(x, y, x + 5 * s.cos(angle), y + 5 * s.sin(angle));
+      particles = particles.map(({ angle, loc: [x, y], color, width }) => {
+        const [newX, newY] = [
+          x + ssize * s.cos(angle),
+          y + ssize * s.sin(angle),
+        ];
+        s.push();
+        s.stroke(color);
+        s.fill(color);
+        s.strokeWeight(width);
+        s.line(x, y, newX, newY);
+        s.pop();
+        console.log({
+          i: Math.floor(newY / resolution),
+          j: Math.floor(newX / resolution),
+          field,
+        });
+        return {
+          angle:
+            field[Math.floor(newY / resolution)]?.[
+              Math.floor(newX % resolution)
+            ] ?? 0,
+          loc: [newX, newY],
+          color,
+          width,
+        };
       });
-      s.pop();
+
+      cnt += 1;
     };
   }, ref);
 };
