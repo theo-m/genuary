@@ -24,7 +24,7 @@ export default function Home() {
 
         <p>
           I like generative art*, this is my first experience doing genuary. The
-          sources are available, I've cobbled together p5js and nextjs.
+          sources are available**, I've cobbled together p5js and nextjs.
         </p>
 
         <ul className="flex flex-col mt-8">
@@ -57,8 +57,15 @@ export default function Home() {
           .
         </p>
 
-        <p className="text-xs mt-4 underline">
-          <a href="https://github.com/theo-m/genuary">source</a>
+        <p className="text-sm mt-2">
+          [**]{" "}
+          <a
+            className="text-blue-500 hover:text-blue-300 underline"
+            href="https://github.com/theo-m/genuary"
+          >
+            sources
+          </a>{" "}
+          (with reading notes)
         </p>
       </main>
     </div>
