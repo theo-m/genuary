@@ -3,7 +3,7 @@ import { frame, unif, unifctr } from "./rnd";
 
 const serverSideProps = {
   name: "space",
-  path: "d3-space",
+  path: "space",
   comment:
     "moving! particles! fun to do, but not great to look at... probly won't run on mobile?",
   sketch: null,

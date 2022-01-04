@@ -3,7 +3,7 @@ import { frame } from "./rnd";
 
 const serverSideProps = {
   name: "dithering",
-  path: "d2-dithering",
+  path: "dithering",
   comment:
     "reimpl of something i saw on twitter, couldn't find the original work though",
   sketch: null,

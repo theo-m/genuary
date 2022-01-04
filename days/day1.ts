@@ -2,7 +2,7 @@ import type Ip5 from "p5";
 import { frame } from "./rnd";
 const serverSideProps = {
   name: "10k",
-  path: "d1-10k",
+  path: "10k",
   comment: "dumb noise, just drew 10k circles 🤷",
   sketch: null,
 };
