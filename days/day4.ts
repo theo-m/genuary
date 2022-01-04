@@ -13,15 +13,15 @@ const sketch = (ref: HTMLDivElement) => {
 
   const [w, h] = frame(ref);
 
-  const length = 100;
-  const ssize = 10;
+  const length = 200;
+  const ssize = 8;
 
   //
   // --- field
   //
   const [xmin, xmax] = [Math.floor(w * -0.5), Math.floor(w * 1.5)];
   const [ymin, ymax] = [Math.floor(h * -0.5), Math.floor(h * 1.5)];
-  const resolution = Math.floor(w * 0.08);
+  const resolution = Math.floor(w * 0.03);
   const ncols = Math.ceil((xmax - xmin) / resolution);
   const nrows = Math.ceil((ymax - ymin) / resolution);
 
@@ -50,10 +50,13 @@ const sketch = (ref: HTMLDivElement) => {
       if (cnt > length) {
         s.background(0);
         const phase = unif(0, Math.PI);
+        const scale = unif(0, 5);
         field = range(ncols).map((x) =>
           range(nrows).map(
             (y) =>
-              s.sin(phase + x - ncols / 2) * 10 * s.sin(phase + y - nrows / 2)
+              s.sin(scale * (phase + x - ncols / 2)) *
+              6 *
+              s.sin(scale * (phase + y - nrows / 2))
           )
         );
         particles = field.flat().map((angle, i) => ({
@@ -79,16 +82,11 @@ const sketch = (ref: HTMLDivElement) => {
           y + ssize * s.sin(angle),
         ];
         s.push();
-        s.stroke(color);
-        s.fill(color);
+        s.stroke(color, 60);
         s.strokeWeight(width);
         s.line(x, y, newX, newY);
         s.pop();
-        console.log({
-          i: Math.floor(newY / resolution),
-          j: Math.floor(newX / resolution),
-          field,
-        });
+
         return {
           angle:
             field[Math.floor(newY / resolution)]?.[
