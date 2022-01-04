@@ -14,14 +14,15 @@ const sketch = (ref: HTMLDivElement) => {
   const [w, h] = frame(ref);
 
   const length = 200;
-  const ssize = 8;
+  const ssize = w * 0.001;
+  const gsize = 0.05;
 
   //
   // --- field
   //
   const [xmin, xmax] = [Math.floor(w * -0.5), Math.floor(w * 1.5)];
   const [ymin, ymax] = [Math.floor(h * -0.5), Math.floor(h * 1.5)];
-  const resolution = Math.floor(w * 0.03);
+  const resolution = Math.floor(w * gsize);
   const ncols = Math.ceil((xmax - xmin) / resolution);
   const nrows = Math.ceil((ymax - ymin) / resolution);
 
