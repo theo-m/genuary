@@ -2,10 +2,11 @@ import type Ip5 from "p5";
 import { frame, pcos, range, unif, unifctr } from "./rnd";
 
 const meta = {
-  id: "fiudenza",
-  official: true,
-  name: "fiudenza",
-  comment: "wip",
+  id: "fiudenzaflow",
+  official: false,
+  name: "semi working flowfield",
+  comment:
+    "particles should be respawned, but the day's prompt hint at a static image so won't impl that",
 };
 
 const sketch = (ref: HTMLDivElement) => {
