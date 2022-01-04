@@ -32,10 +32,11 @@ export default function Home() {
             <Link href={"/[day]"} as={`/${id}`} key={id}>
               <a
                 className={
-                  "flex space-x-2 text-gray-400" + (official ? "" : " text-sm")
+                  "flex space-x-2 text-gray-400" +
+                  (official ? " mt-2" : " text-sm")
                 }
               >
-                {!official && <span>+</span>}
+                <span>{official ? "⬘" : "......"}</span>
                 <div className="text-blue-500 hover:text-blue-300 underline whitespace-nowrap">
                   {name}
                 </div>
