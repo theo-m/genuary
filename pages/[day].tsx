@@ -18,7 +18,7 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
   }, []);
 
   return (
-    <div className="h-screen w-screen flex flex-col">
+    <div className="h-screen w-screen flex flex-col items-center">
       <Head>
         <title>{d?.name}</title>
       </Head>

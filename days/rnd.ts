@@ -5,5 +5,5 @@ export const unifctr = (c: number, r: number) => c - r + 2 * r * Math.random();
 
 export const frame = (ref: HTMLDivElement) => {
   const cr = ref.parentElement?.getBoundingClientRect();
-  return [cr?.width ?? 400, cr?.height ?? 600];
+  return [Math.min(cr?.width ?? 400, 1400), Math.min(cr?.height ?? 600, 1400)];
 };
