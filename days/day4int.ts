@@ -2,10 +2,11 @@ import type Ip5 from "p5";
 import { frame, unif, unifctr } from "./rnd";
 
 const meta = {
-  id: "fiudenza",
-  official: true,
-  name: "fiudenza",
-  comment: "wip",
+  id: "fiudenza-int",
+  official: false,
+  name: "not day 4",
+  comment:
+    "learning about flow field, this is not really one but it looks cool",
 };
 
 const sketch = (ref: HTMLDivElement) => {

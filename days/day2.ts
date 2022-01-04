@@ -4,6 +4,7 @@ import { frame } from "./rnd";
 const meta = {
   id: "dithering",
   name: "dithering",
+  official: true,
   comment:
     "reimpl of something i saw on twitter, couldn't find the original work though",
 };

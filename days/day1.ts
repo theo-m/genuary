@@ -4,6 +4,7 @@ import { frame } from "./rnd";
 const meta = {
   id: "10k",
   name: "10k",
+  official: true,
   comment: "dumb noise, just drew 10k circles 🤷",
 };
 

@@ -4,6 +4,7 @@ import { frame, unif, unifctr } from "./rnd";
 const meta = {
   id: "space2",
   name: "space2",
+  official: false,
   comment: "was not satisfied with v1, now not satisfied with v2 yay",
   sketch: null,
 };

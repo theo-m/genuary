@@ -4,6 +4,7 @@ import { frame, unif, unifctr } from "./rnd";
 const meta = {
   id: "space",
   name: "space",
+  official: true,
   comment:
     "moving! particles! fun to do, but not great to look at... probly won't run on mobile?",
 };

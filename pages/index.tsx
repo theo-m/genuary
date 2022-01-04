@@ -28,15 +28,18 @@ export default function Home() {
         </p>
 
         <ul className="flex flex-col mt-8">
-          {days.map(({ id, name, comment }) => (
+          {days.map(({ id, name, comment, official }) => (
             <Link href={"/[day]"} as={`/${id}`} key={id}>
-              <a className="flex space-x-2">
-                <span className="text-blue-500 hover:text-blue-300 underline">
+              <a
+                className={
+                  "flex space-x-2 text-gray-400" + (official ? "" : " text-sm")
+                }
+              >
+                {!official && <span>+</span>}
+                <div className="text-blue-500 hover:text-blue-300 underline whitespace-nowrap">
                   {name}
-                </span>
-                <span className="truncate text-gray-400 -underline">
-                  {comment}
-                </span>
+                </div>
+                <div className="truncate">{comment}</div>
               </a>
             </Link>
           ))}
