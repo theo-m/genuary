@@ -28,8 +28,8 @@ export default function Home() {
         </p>
 
         <ul className="flex flex-col mt-8">
-          {days.map(({ path, name, comment }) => (
-            <Link href={"/[day]"} as={`/${path}`} key={path}>
+          {days.map(({ id, name, comment }) => (
+            <Link href={"/[day]"} as={`/${id}`} key={id}>
               <a className="flex space-x-2">
                 <span className="text-blue-500 hover:text-blue-300 underline">
                   {name}

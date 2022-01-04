@@ -5,10 +5,10 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 import days from "../days";
 
-const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Id = ({ id }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const d = days.filter((d) => d.path === day)[0];
+  const d = days.filter((d) => d.id === id)[0];
   useEffect(() => {
     if (ref.current === null || typeof window === "undefined") {
       return;
@@ -22,6 +22,7 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head>
         <title>{d?.name}</title>
       </Head>
+
       <div className="mx-auto p-2">
         <Link href="/">
           <a className="text-blue-500 hover:text-blue-300 underline">back</a>
@@ -29,22 +30,23 @@ const Day = ({ day }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <h1>{d?.name}</h1>
         <p>{d?.comment}</p>
       </div>
-      <div className="" ref={ref}></div>
+
+      <div ref={ref} />
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   return {
-    props: { day: context.params?.day }, // will be passed to the page component as props
+    props: { id: context.params?.id }, // will be passed to the page component as props
   };
 };
 
 export async function getStaticPaths() {
   return {
-    paths: days.map((key) => ({ params: { day: key.path } })),
-    fallback: "blocking", // See the "fallback" section below
+    paths: days.map(({ id }) => ({ params: { id } })),
+    fallback: "blocking",
   };
 }
 
-export default Day;
+export default Id;
