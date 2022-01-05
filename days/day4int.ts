@@ -2,7 +2,7 @@ import type Ip5 from "p5";
 import { frame, unif, unifctr } from "./rnd";
 
 const meta = {
-  id: "fiudenza-int",
+  id: "fidenza-int",
   official: false,
   name: "not day 4",
   comment:

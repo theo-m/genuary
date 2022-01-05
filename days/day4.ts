@@ -2,10 +2,11 @@ import type Ip5 from "p5";
 import { frame, pcos, range, unif, unifctr } from "./rnd";
 
 const meta = {
-  id: "fiudenza",
+  id: "fidenza",
   official: true,
-  name: "fiudenza",
-  comment: "wip",
+  name: "fidenza",
+  comment:
+    "not super happy with this, some artifacts i've not been able to remove in time - cool learning exp though",
 };
 
 const sketch = (ref: HTMLDivElement) => {

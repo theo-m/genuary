@@ -2,7 +2,7 @@ import type Ip5 from "p5";
 import { frame, pcos, range, unif, unifctr } from "./rnd";
 
 const meta = {
-  id: "fiudenzaflow",
+  id: "fidenzaflow",
   official: false,
   name: "semi working flowfield",
   comment:
