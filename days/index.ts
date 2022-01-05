@@ -5,8 +5,10 @@ import day3bis from "./day3bis";
 import day4 from "./day4";
 import day4flow from "./day4flow";
 import day4int from "./day4int";
+import newday from "./newday";
 
 const days: Array<typeof day1> = [
+  ...(process.env.NODE_ENV === "development" ? [newday] : []),
   day1,
   day2,
   day3,
