@@ -6,6 +6,7 @@ import day4 from "./day4";
 import day4flow from "./day4flow";
 import day4int from "./day4int";
 import newday from "./newday";
+import day5 from "./day5";
 
 const days: Array<typeof day1> = [
   ...(process.env.NODE_ENV === "development" ? [newday] : []),
@@ -16,6 +17,7 @@ const days: Array<typeof day1> = [
   day4,
   day4int,
   day4flow,
+  day5,
 ];
 
 export default days;

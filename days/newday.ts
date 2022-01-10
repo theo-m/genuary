@@ -19,17 +19,16 @@ const sketch = (ref: HTMLDivElement) => {
     s.setup = () => {
       s.createCanvas(w, h);
       s.background(0);
+      s.noLoop();
     };
 
     s.draw = () => {
       range(w).forEach((x) =>
         range(h).forEach((y) => {
-          const val = [0.001, 0.005, 0.01]
-            .map((sc, i) =>
-              s.map(s.noise(x * sc, y * sc), 0, 1, 0, 255 / (i + 1))
-            )
+          const val = [0.05, 0.5]
+            .map((sc, i) => s.map(s.noise(x * sc, y * sc), 0, 1, 0, 255 / 2))
             .reduce((acc, v) => acc + v, 0);
-          s.set(x, y, val);
+          s.set(x, y, val > 120 ? 255 : 0);
         })
       );
       s.updatePixels();

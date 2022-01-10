@@ -14,3 +14,6 @@ export const range = (n: number) =>
     .map((_, i) => i);
 
 export const pcos = (n: number) => (Math.cos(n) + 1) / 2;
+
+export const randomColor = (h: number | undefined = undefined) =>
+  `hsl(${h ?? Math.floor(unif(0, 360))}, 100%, 50%)`;

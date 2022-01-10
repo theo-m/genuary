@@ -1,5 +1,5 @@
 import type Ip5 from "p5";
-import { frame, pcos, range, unif, unifctr } from "./rnd";
+import { frame, pcos, randomColor, range, unif, unifctr } from "./rnd";
 
 const meta = {
   id: "fidenza",
@@ -61,7 +61,7 @@ const sketch = (ref: HTMLDivElement) => {
             (i % ncols) * resolution + resolution / 2,
           ],
           angle,
-          color: `hsl(${((i / nrows / ncols) * 360) | 0}, 100%, 50%)`,
+          color: randomColor((i / nrows / ncols) * 360),
           width: Math.floor(unif(4, 20)),
         }))
         .filter(() => Math.random() > 0.9);
