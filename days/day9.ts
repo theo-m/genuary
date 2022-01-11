@@ -29,8 +29,8 @@ const sketch = (ref: HTMLDivElement) => {
         s.noStroke();
         s.fill(
           randomColor({
-            sat: 70 - (idx * 70) / n,
-            light: 100 - (idx * 100) / n,
+            sat: 20 - (idx * 20) / n,
+            light: 90 - (idx * 90) / n,
           })
         );
         s.beginShape();
