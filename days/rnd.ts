@@ -15,5 +15,12 @@ export const range = (n: number) =>
 
 export const pcos = (n: number) => (Math.cos(n) + 1) / 2;
 
-export const randomColor = (p?: { h?: number; alpha?: number }) =>
-  `hsla(${p?.h ?? Math.floor(unif(0, 360))}, 30%, 80%, ${p?.alpha ?? 1})`;
+export const randomColor = (p?: {
+  hue?: number;
+  sat?: number;
+  light?: number;
+  alpha?: number;
+}) =>
+  `hsla(${p?.hue ?? Math.floor(unif(0, 360))}, ${p?.sat ?? 30}%, ${
+    p?.light ?? 80
+  }%, ${p?.alpha ?? 1})`;
