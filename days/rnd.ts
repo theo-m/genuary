@@ -20,7 +20,7 @@ export const grid = (w: number, h: number) =>
 
 export const pcos = (n: number) => (Math.cos(n) + 1) / 2;
 
-export const randomColor = (p?: {
+export const hsla = (p?: {
   hue?: number;
   sat?: number;
   light?: number;

@@ -1,5 +1,5 @@
 import type Ip5 from "p5";
-import { frame, randomColor, range, unif, unifctr } from "./rnd";
+import { frame, hsla, range, unif, unifctr } from "./rnd";
 
 const meta = {
   id: "architecture",
@@ -28,7 +28,7 @@ const sketch = (ref: HTMLDivElement) => {
         s.push();
         s.noStroke();
         s.fill(
-          randomColor({
+          hsla({
             sat: 20 - (idx * 20) / n,
             light: 90 - (idx * 90) / n,
           })

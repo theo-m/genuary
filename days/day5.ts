@@ -1,5 +1,5 @@
 import type Ip5 from "p5";
-import { frame, randomColor, range, unif, unifctr } from "./rnd";
+import { frame, hsla, range, unif, unifctr } from "./rnd";
 
 const meta = {
   id: "friend",
@@ -33,7 +33,7 @@ const sketch = (ref: HTMLDivElement) => {
       const n = Math.floor(unif(10, h * 0.05));
       return {
         n,
-        color: randomColor(),
+        color: hsla(),
         heights: range(n).map(() => unif(5, h * 0.05)),
       };
     };
@@ -48,7 +48,7 @@ const sketch = (ref: HTMLDivElement) => {
         let ycurr = i * h * 0.05;
         s.stroke(`hsl(0, 0%, ${Math.floor(unif(30, 70))}%)`);
         s.strokeWeight(Math.floor(unif(1, 2)));
-        s.fill(randomColor({ alpha: 0.7 }));
+        s.fill(hsla({ alpha: 0.7 }));
         s.beginShape();
         s.vertex(xcurr, ycurr);
         range(100).forEach((j) => {
@@ -74,11 +74,11 @@ const sketch = (ref: HTMLDivElement) => {
         s.vertex(0, ycurr);
         s.endShape(s.CLOSE);
       });
-      s.fill(randomColor({ alpha: 0.7 }));
+      s.fill(hsla({ alpha: 0.7 }));
       s.circle(w / 2 - 3, h / 2 + 10, 514);
-      s.fill(randomColor({ alpha: 0.7 }));
+      s.fill(hsla({ alpha: 0.7 }));
       s.circle(w / 2 + 14, h / 2 - 3, 520);
-      s.fill(randomColor({ alpha: 0.7 }));
+      s.fill(hsla({ alpha: 0.7 }));
       s.circle(w / 2, h / 2, 500);
       s.pop();
 
